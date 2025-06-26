@@ -2,6 +2,15 @@ package com.driver;
 
 public class SumatranTiger implements Tiger {
     @Override
+      private String color;
+    private double averageWeight;
+    private String preferredClimate;
+
+    public SumatranTiger(String color, double averageWeight, String preferredClimate) {
+        this.color = color;
+        this.averageWeight = averageWeight;
+        this.preferredClimate = preferredClimate;
+    }
     public String getType() {
         return "Sumatran Tiger";
     }
