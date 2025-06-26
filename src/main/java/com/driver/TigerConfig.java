@@ -1,29 +1,28 @@
-package com.driver;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration
-public class TigerConfig {
-
-    @Bean
-    public Tiger bengalTiger() {
-        return new BengalTiger();
-    }
-
-    @Bean
-    public Tiger siberianTiger() {
-        return new SiberianTiger();
-    }
-
-    @Bean
-    public Tiger sumatranTiger() {
-        return new SumatranTiger();
-    }
+public class AppConfig {
 
     @Bean
     public TigerHabitat tigerHabitat() {
         return new TigerHabitat();
     }
-}
 
+    @Bean
+    @Scope("prototype")
+    public Tiger bengalTiger(String color, double weight, String climate) {
+        return new BengalTiger(color, weight, climate);
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Tiger siberianTiger(String color, double weight, String climate) {
+        return new SiberianTiger(color, weight, climate);
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Tiger sumatranTiger(String color, double weight, String climate) {
+        return new SumatranTiger(color, weight, climate);
+    }
+}
